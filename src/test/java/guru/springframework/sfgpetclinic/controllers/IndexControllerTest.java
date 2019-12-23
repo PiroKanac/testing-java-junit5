@@ -1,8 +1,7 @@
 package guru.springframework.sfgpetclinic.controllers;
 
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 class IndexControllerTest
 {
@@ -14,6 +13,7 @@ class IndexControllerTest
 		controller = new IndexController();
 	}
 
+	@DisplayName("Test Proper View name is returned for index page")
 	@Test
 	void index()
 	{
@@ -22,9 +22,13 @@ class IndexControllerTest
 		assertEquals("index", controller.index(), () -> "Another Expensive Message " + "Make me only if you have to");
 	}
 
+	@DisplayName("Test exception")
 	@Test
 	void oupsHandler()
 	{
-		assertTrue("notimplemented".equals(controller.oupsHandler()), () -> "This is some expensive " + "Message to build" + "for my test");
+		//assertTrue("notimplemented".equals(controller.oopsHandler()), () -> "This is some expensive " + "Message to build" + "for my test");
+
+		assertThrows(ValueNotFoundException.class, () -> {controller.oopsHandler();});
+
 	}
 }

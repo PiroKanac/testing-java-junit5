@@ -1,14 +1,9 @@
 package guru.springframework.sfgpetclinic.services.springdatajpa;
 
+import java.util.*;
 import guru.springframework.sfgpetclinic.model.Owner;
-import guru.springframework.sfgpetclinic.repositories.OwnerRepository;
-import guru.springframework.sfgpetclinic.repositories.PetRepository;
-import guru.springframework.sfgpetclinic.repositories.PetTypeRepository;
+import guru.springframework.sfgpetclinic.repositories.*;
 import guru.springframework.sfgpetclinic.services.OwnerService;
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 public class OwnerSDJpaService implements OwnerService {
 
