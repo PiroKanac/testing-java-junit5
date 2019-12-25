@@ -1,11 +1,10 @@
 package guru.springframework.sfgpetclinic.services.map;
 
+import java.util.Set;
 import guru.springframework.sfgpetclinic.model.Speciality;
 import guru.springframework.sfgpetclinic.model.Vet;
 import guru.springframework.sfgpetclinic.services.SpecialtyService;
 import guru.springframework.sfgpetclinic.services.VetService;
-
-import java.util.Set;
 
 public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
 
@@ -28,7 +27,7 @@ public class VetMapService extends AbstractMapService<Vet, Long> implements VetS
     @Override
     public Vet save(Vet object) {
 
-        if (object.getSpecialities().size() > 0){
+        if (object.getSpecialities() != null && object.getSpecialities().size() > 0){
             object.getSpecialities().forEach(speciality -> {
                 if(speciality.getId() == null){
                     Speciality savedSpecialty = specialtyService.save(speciality);

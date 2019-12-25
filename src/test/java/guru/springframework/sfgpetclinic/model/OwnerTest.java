@@ -1,5 +1,7 @@
 package guru.springframework.sfgpetclinic.model;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
@@ -13,13 +15,14 @@ class OwnerTest
 
 		assertAll("Properties Test",
 			() -> assertAll("Person Properties",
-				() -> assertEquals("Joes", owner.getFirstName(), "First Name Did not Match"),
-				() -> assertEquals("Buck", owner.getFirstName())),
+				() -> assertEquals("Joe", owner.getFirstName(), "First Name Did not Match"),
+				() -> assertEquals("Doe", owner.getLastName())),
 			() -> assertAll("Owner Properties",
 				() -> assertEquals("Key West", owner.getCity(), "City Did not Match"),
 				() -> assertEquals("123123123123", owner.getTelephone()))
 
-
 			);
+
+		assertThat(owner.getCity(), is("Key West"));
 	}
 }
